@@ -1,0 +1,26 @@
+
+<div class="container-fluid d-flex justify-content-center  flex-wrap gap-2 mt-3">
+    <div class="card justify-content-between " *ngFor="let artwork of artworks">
+        <div>
+            <div class="" style="width: 18rem;">
+                <img class="card-img-top"
+                    src="https://www.artic.edu/iiif/2/{{artwork.image_id}}/full/843,/0/default.jpg" height="300px"
+                    alt="Card image cap">
+                <div class="card-body">
+                    <h3 class="card-title">{{ artwork.title }}</h3>
+                    <p class="card-text">{{ artwork.artwork_type_title }}</p>
+                </div>
+            </div>
+        </div>
+        <div class="d-flex justify-content-between ms-5 mb-2 me-5">
+            <div class="favorite-icon" (click)=" toggleFavorite(artwork)">
+                <mat-icon *ngIf="isFavorite(artwork)">favorite</mat-icon>
+                <mat-icon *ngIf="!isFavorite(artwork)">favorite_border</mat-icon>
+            </div>
+            <mat-icon class="share-icon" (click)="share(artwork.id)">share-square</mat-icon>
+        </div>
+    </div>
+<div class="text-center mt-3" *ngIf="artworks.length==0">
+    <h1 class="fw-bold">Wishlist is Empty</h1>
+    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTpctExCCsUXzQhqqUhcFWW3vphIwceflcOA3oSddLzgSyg99F6_Hd2qN-rwO0zioTMevk&usqp=CAU" alt="image not found">
+</div>

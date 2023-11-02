@@ -1,0 +1,19 @@
+.favorite-icon:hover,.share-icon:hover{
+    transform: scale(1.5);
+}
+.search-field {
+    padding: 10px;
+    border-radius: 20px;
+    border: 1px solid #151313;
+}
+
+.search-field:hover {
+    border: 1px solid #aaa;
+    box-shadow: 2px 2px 5px #ccc;
+}
+
+i{
+    padding: 10px;
+    min-width: 40px;
+}
+

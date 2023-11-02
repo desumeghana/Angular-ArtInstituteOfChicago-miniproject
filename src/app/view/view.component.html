@@ -1,0 +1,31 @@
+<div class="container mt-5">
+    <div class="row" >
+        <div class="col-md-5 mt-5 mx-5">
+            <img src="https://www.artic.edu/iiif/2/{{artworks.image_id}}/full/843,/0/default.jpg" class="img-fluid mb-3"
+                alt="{{artworks.title}}" style="height:75%" />
+        </div>
+        <div class="col-md-5 mt-5">
+            <h1>{{artworks.title}}</h1>
+            <p class="mb-3"><strong>Dimensions:</strong><br>{{ artworks.dimensions }}</p>
+            <p class="mb-3">{{ artworks.description | slice:3:300 }}</p>
+            <div class="d-flex justify-content-around">
+                <div (click)=" toggleFavorite(artworks)">
+                    <mat-icon *ngIf="isFavorite(artworks)">favorite </mat-icon>
+                    <mat-icon *ngIf="!isFavorite(artworks)">favorite_border</mat-icon>
+                </div>
+                <mat-icon class="share-icon" (click)="share(artworks.id)">share-square</mat-icon>
+            </div>
+            <!-- Add more information that you want to show -->
+        </div>
+    </div>
+</div>
+
+<!-- Add this style to make the columns stack at small screen sizes -->
+<style>
+    @media (max-width: 767px) {
+        .row>div {
+            flex: 0 0 100%;
+            max-width: 100%;
+        }
+    }
+</style>
